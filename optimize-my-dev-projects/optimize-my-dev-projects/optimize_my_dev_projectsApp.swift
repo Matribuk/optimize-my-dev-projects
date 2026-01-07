@@ -25,7 +25,23 @@ struct optimize_my_dev_projectsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                ContentView()
+                    .tabItem {
+                        Label("Home", systemImage: "house")
+                    }
+                
+                Text("Settings")
+                    .tabItem {
+                        Label("Settings", systemImage: "gear")
+                    }
+                NewView()
+                    .tabItem{
+                        Label("New swift page", systemImage: "car")
+                    }
+            }
+            .toolbarBackground(.visible, for: .tabBar)
+            .toolbarBackground(Material.ultraThinMaterial, for: .tabBar)
         }
         .modelContainer(sharedModelContainer)
     }
